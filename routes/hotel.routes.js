@@ -1,18 +1,21 @@
 const router = require("express").Router();
 const HotelModel = require("../models/Hotel.Model")
-const isAuthenticated = require("../middleware/isAuthenticated")
-const isAdmin = require("../middleware/isAdmin")
+//const isAdmin = require("../middleware/isAdmin")
+const categorias = require("../utils/categorias")
+const pension = require("../utils/pension")
+const hotelsCreados = require("../seeds/hoteles.json")
 
 //EL CRUD DE LOS HOTELES
 
 //GET "/api/hotels" => ver todos los hoteles
-router.get("/", isAuthenticated, async (req, res, next)=>{
+router.get("/", async (req, res, next)=>{
 
-    console.log(req.payload._id) // para ver si esta logueado
+    //console.log(req.payload.id) // para ver si esta logueado
 
     try {
-        const response = await HotelModel.find().select("nombre", "estrellas", "image")
+        const response = await HotelModel.find()
         res.json(response)
+        console.log(response)
         
     } catch (error) {
         next(error)
@@ -24,7 +27,7 @@ router.get("/", isAuthenticated, async (req, res, next)=>{
 
 
 //POST "/api/create" => crear un nuevo hotel 
-router.post("/create", isAdmin, async (req, res, next)=>{
+router.post("/create", async (req, res, next)=>{
 
     const {nombre, estrellas, categorias, ubicacion, precios, pension, descripcion} = req.body
 
@@ -38,6 +41,7 @@ router.post("/create", isAdmin, async (req, res, next)=>{
             pension, 
             descripcion
         })
+        res.json(response)
     } catch (error) {
         next(error)
     }
@@ -63,7 +67,7 @@ router.get("/:id", async (req, res, next)=>{
 
 
 //DELETE "/api/hotels/:id" => borrar un hotel
-router.delete("/:id", isAdmin, async (req, res, next)=>{
+router.delete("/:id", async (req, res, next)=>{
 
     const {id} =req.params
 
@@ -82,13 +86,17 @@ router.delete("/:id", isAdmin, async (req, res, next)=>{
 //PATCH "/api/hotels/:id" => editar un hotel
 router.patch("/:id", async (req, res, next)=>{
    
-    const {id} =req.params
+    const {id} = req.params
     const {nombre, estrellas, categorias, ubicacion, precios, pension, descripcion } = req.body
     console.log(req.body)
 
+    if(!nombre || !estrellas || !categorias || !ubicacion || !precios || !pension || !descripcion){
+        return res.status(400).json("Todos los campos deben estar completados")
+    }
+
     try {
         //no hace falta const porque no  necesita lla llamada de la base de datos con lo que esta borrando
-        await TodoModel.findByIdAndUpdate(id, {
+        await HotelModel.findByIdAndUpdate(id, {
             nombre, 
             estrellas, 
             categorias, 
@@ -96,7 +104,7 @@ router.patch("/:id", async (req, res, next)=>{
             precios, 
             pension, 
             descripcion
-        })
+        }, { new: true })
         res.json("La informacion del hotel ha sido actualizada")//no importa el que pero siempre tiene que haber una respuesta
         
     } catch (error) {

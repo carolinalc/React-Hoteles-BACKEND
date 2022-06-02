@@ -1,4 +1,6 @@
 const { Schema, model } = require("mongoose");
+const categorias = require("../utils/categorias");
+const pension = require("../utils/pension");
 
 const  HotelSchema = new Schema({
     nombre: {
@@ -10,10 +12,10 @@ const  HotelSchema = new Schema({
     estrellas: {
         type: String
     },
-   categorias: {
+   categorias: [{
         type: String,
-        enum: ["ciudad", "resort", "rural", "tematico"]
-    },
+        enum: categorias
+    }],
    ubicacion: {
         type: String
         //(mapa)
@@ -21,10 +23,10 @@ const  HotelSchema = new Schema({
    precios: {
         type: Number,     
     },
-   pension: {
+   pension: [{
         type: String,
-        enum: [ "Con desayuno",  "media pension",  "pension completa"]
-    },
+        enum: pension
+    }],
    descripcion: {
         type: String
     }

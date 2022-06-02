@@ -1,4 +1,5 @@
-[{
+[
+    {
     "nombre": "Hotel Castillo",
     "image": "url imagen",
     "estrellas": "⭐⭐⭐",
@@ -20,3 +21,7 @@
    "descripcion": "Justo en el centro de la ciudad"
    }
 ]
+
+
+
+
