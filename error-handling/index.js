@@ -9,8 +9,8 @@ module.exports = (app) => {
     // always logs the error
     console.error("ERROR", req.method, req.path, err);
 
-    if(error.response.status === 401){
-      return res.status(401).json("Error en la autentificación")
+    if(err.status === 401){
+       res.status(401).json({errorMessage: "Error en la autentificación"})
     }
 
     // only render if the error ocurred before sending the response
