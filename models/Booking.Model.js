@@ -16,11 +16,11 @@ const  ReservaSchema = new Schema({
             
     },
 clienteId: {
-   type: Schma.Type.ObjectId,
-  ref: "Usuario"
+   type: Schema.Type.ObjectId,
+  ref: "User"
   },
    hotelId: {
-   type: Schma.Type.ObjectId,
+   type: Schema.Type.ObjectId,
   ref: "Hotel"
   },
    })

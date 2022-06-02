@@ -2,7 +2,7 @@ const { Schema, model } = require("mongoose");
 
 // TODO: Please make sure you edit the user model to whatever makes sense in this case
 
-const  User = new Schema({
+const  UserSchema = new Schema({
   username: {
       type: String,
       required: true
@@ -25,7 +25,7 @@ const  User = new Schema({
       require: true
   },
 imagen: {
-      type: string,
+      type: String,
       required: true
   },
  role: {
@@ -41,7 +41,7 @@ imagen: {
 }
 )
 
-const UserModel = model("User",UserSchema)
+const UserModel = model("User", UserSchema)
 
 module.exports = UserModel
 

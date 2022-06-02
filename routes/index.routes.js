@@ -7,14 +7,13 @@ router.get("/", (req, res, next) => {
 // You put the next routes here 👇
 // example: router.use("/auth", authRoutes)
 
+const authRoutes = require("./auth.routes.js")
+router.use("/auth", authRoutes)
 
- const authRoutes = require("./auth.routes.js")
- router.use("/auth", authRoutes)
+const profileRoutes = require("./profile.routes.js")
+router.use("/profile", profileRoutes)
 
- const profileRoutes = require("./profile.routes.js")
- router.use("/profile", profileRoutes)
-
- const hotelsRoutes = require("./hotel.routes.js")
- router.use("/hotels", hotelsRoutes)
+const hotelsRoutes = require("./hotel.routes.js")
+router.use("/hotels", hotelsRoutes)
 
 module.exports = router;

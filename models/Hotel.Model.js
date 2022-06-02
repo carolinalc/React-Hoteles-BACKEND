@@ -4,34 +4,37 @@ const  HotelSchema = new Schema({
     nombre: {
         type: String
     },
+    image: {
+        type: String
+    },
     estrellas: {
         type: String
     },
-   categorías: {
+   categorias: {
         type: String,
         enum: []
     },
-   ubicación: {
+   ubicacion: {
         type: String
-(mapa)
+        //(mapa)
     },
    precios: {
         type: Number,
         enum: []     
     },
-pension: {
-   type: String,
-   enum: [ "Con desayuno",  "media pension",  "pension completa"]
-},
-   descripción: {
+   pension: {
+        type: String,
+        enum: [ "Con desayuno",  "media pension",  "pension completa"]
+    },
+   descripcion: {
         type: String
     }
    },
    {
     // this second object adds extra properties: `createdAt` and `updatedAt`
     timestamps: true,
-  }
-  )
+    }
+)
 
 const HotelModel = model("Hotel", HotelSchema)
 
