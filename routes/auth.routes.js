@@ -93,7 +93,7 @@ router.post("/login", async(req, res, next) =>{
 
 
 //GET "api/auth/verify" => chequea que el Token es valido, la ruta se usa para el flujo de FrontEnd
-router.post("/verify", isAuthenticated, async(req, res, next) =>{
+router.post("/verify", isAuthenticated, (req, res, next) =>{
 
     res.json(req.payload)
 
