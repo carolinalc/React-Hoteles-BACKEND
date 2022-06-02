@@ -7,9 +7,9 @@ const isAuthenticated = require("../middleware/isAuthenticated")
 
 //POST "/api/auth/signup" => registrar un usuario
 router.post("/signup", async(req, res, next) =>{
-    const { email, password, password2, username } = req.body
+    const { email, password, password2, username, DOB } = req.body
 
-    if(!email || !password || !password2 || !username) {
+    if(!email || !password || !password2 || !username || !DOB) {
         res.status(400).json({errorMessage: "Faltan campos de registro"})
         return;
     }
@@ -19,7 +19,7 @@ router.post("/signup", async(req, res, next) =>{
         return;
     }
 
-    const passworsRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/
 
     if(!passwordRegex.text(password)){
         res.status(400).json({errorMessage: "La contraseña necesita entre 8 y 15 caracteres, al menos una mayúscula y una minúscula, un caracter especial y ningún espacio en blanco"})
@@ -39,6 +39,7 @@ router.post("/signup", async(req, res, next) =>{
         const createUser = await UserModel.create({
             username, 
             email,
+            DOB,
             password: hashPasword,
             password2: hashPasword2
         })
@@ -93,10 +94,8 @@ router.post("/login", async(req, res, next) =>{
 
 
 //GET "api/auth/verify" => chequea que el Token es valido, la ruta se usa para el flujo de FrontEnd
-router.post("/verify", isAuthenticated, (req, res, next) =>{
-
+router.get("/verify", isAuthenticated, (req, res, next) => {
     res.json(req.payload)
-
 })
 
 
