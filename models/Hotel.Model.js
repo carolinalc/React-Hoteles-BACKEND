@@ -12,15 +12,14 @@ const  HotelSchema = new Schema({
     },
    categorias: {
         type: String,
-        enum: []
+        enum: ["ciudad", "resort", "rural", "tematico"]
     },
    ubicacion: {
         type: String
         //(mapa)
     },
    precios: {
-        type: Number,
-        enum: []     
+        type: Number,     
     },
    pension: {
         type: String,

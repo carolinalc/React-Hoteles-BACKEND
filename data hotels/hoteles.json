@@ -1,0 +1,22 @@
+[{
+    "nombre": "Hotel Castillo",
+    "image": "url imagen",
+    "estrellas": "⭐⭐⭐",
+   "categorias": "tematico",
+   "ubicacion": "Cuenca",
+   "precios": 105,
+   "pension": [ "Con desayuno",  "media pension",  "pension completa"],
+   "descripcion": "Todo muy magico y maravilloso"
+   },
+
+   {
+    "nombre": "Hotel Centro",
+    "image": "url imagen",
+    "estrellas": "⭐⭐",
+   "categorias": "ciudad",
+   "ubicacion": "Valencia",
+   "precios": 105,
+   "pension": "Con desayuno",
+   "descripcion": "Justo en el centro de la ciudad"
+   }
+]
