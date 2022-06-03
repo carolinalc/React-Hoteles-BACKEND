@@ -1,8 +1,8 @@
 const { Schema, model } = require("mongoose")
 
-const  ReservaSchema = new Schema({
+const  BookingSchema = new Schema({
     fecha: {
-        type: String
+        type: String,
     },
     huespedes: {
         type: Number
@@ -15,16 +15,16 @@ const  ReservaSchema = new Schema({
         type: String,
             
     },
-clienteId: {
-   type: Schema.Type.ObjectId,
-  ref: "User"
+    clienteId: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
   },
-   hotelId: {
-   type: Schema.Type.ObjectId,
-  ref: "Hotel"
+    hotelId: {
+        type: Schema.Types.ObjectId,
+        ref: "Hotel"
   },
    })
 
-const  ReservaModel = model(" Reserva",  ReservaSchema)
+const  BookingModel = model(" Booking",  BookingSchema)
 
-module.exports =  ReservaModel
+module.exports =  BookingModel

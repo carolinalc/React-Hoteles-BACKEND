@@ -1,9 +1,10 @@
 const router = require("express").Router();
 const HotelModel = require("../models/Hotel.Model")
-//const isAdmin = require("../middleware/isAdmin")
+const isAdmin = require("../middleware/isAdmin.js")
 const categorias = require("../utils/categorias")
 const pension = require("../utils/pension")
-const hotelsCreados = require("../seeds/hoteles.json")
+const hotelsCreados = require("../seeds/hoteles.json");
+const isAuthenticated = require("../middleware/isAuthenticated");
 
 //EL CRUD DE LOS HOTELES
 
@@ -27,7 +28,7 @@ router.get("/", async (req, res, next)=>{
 
 
 //POST "/api/create" => crear un nuevo hotel 
-router.post("/create", async (req, res, next)=>{
+router.post("/create", isAuthenticated, async (req, res, next)=>{
 
     const {nombre, estrellas, categorias, ubicacion, precios, pension, descripcion} = req.body
 
@@ -39,7 +40,8 @@ router.post("/create", async (req, res, next)=>{
             ubicacion, 
             precios, 
             pension, 
-            descripcion
+            descripcion,
+         
         })
         res.json(response)
     } catch (error) {
@@ -51,7 +53,7 @@ router.post("/create", async (req, res, next)=>{
 
 
 //GET "/api/hotels/:id" => ver los detalles de un hotel
-router.get("/:id", async (req, res, next)=>{
+router.get("/:id", isAuthenticated, async (req, res, next)=>{
 
     const {id} =req.params
 
@@ -67,7 +69,7 @@ router.get("/:id", async (req, res, next)=>{
 
 
 //DELETE "/api/hotels/:id" => borrar un hotel
-router.delete("/:id", async (req, res, next)=>{
+router.delete("/:id", isAuthenticated, async (req, res, next)=>{
 
     const {id} =req.params
 
@@ -84,7 +86,7 @@ router.delete("/:id", async (req, res, next)=>{
 
 
 //PATCH "/api/hotels/:id" => editar un hotel
-router.patch("/:id", async (req, res, next)=>{
+router.patch("/:id", isAuthenticated, async (req, res, next)=>{
    
     const {id} = req.params
     const {nombre, estrellas, categorias, ubicacion, precios, pension, descripcion } = req.body
