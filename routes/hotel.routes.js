@@ -20,15 +20,56 @@ router.get("/", async (req, res, next)=>{
         console.log(response)
         
     } catch (error) {
-        next(error)
-        
+        next(error)       
     }
+})
 
+//GET "/api/hotels/ciudad" => renderizar solo la categoría ciudad
+router.get("/ciudad", async (req, res, next) => {
+    try {
+        const ciudadCategorie = await HotelModel.find({categorias: "ciudad"})
+        res.json(ciudadCategorie)
+        
+    } catch (error) {
+        next(error)
+    }
+})
 
+//GET "/api/hotels/resort" => renderizar solo la categoría resort
+router.get("/resort", async (req, res, next) => {
+    try {
+        const resortCategorie = await HotelModel.find({categorias: "resort"})
+        res.json(resortCategorie)
+        
+    } catch (error) {
+        next(error)
+    }
+})
+
+//GET "/api/hotels/rural" => renderizar solo la categoría rural
+router.get("/rural", async (req, res, next) => {
+    try {
+        const ruralCategorie = await HotelModel.find({categorias: "rural"})
+        res.json(ruralCategorie)
+        
+    } catch (error) {
+        next(error)
+    }
+})
+
+//GET "/api/hotels/tematico" => renderizar solo la categoría tematico
+router.get("/tematico", async (req, res, next) => {
+    try {
+        const tematicoCategorie = await HotelModel.find({categorias: "tematico"})
+        res.json(tematicoCategorie)
+        
+    } catch (error) {
+        next(error)
+    }
 })
 
 
-//POST "/api/create" => crear un nuevo hotel 
+//POST "/api/hotels/create" => crear un nuevo hotel 
 router.post("/create", isAuthenticated, isAdmin, cloudinary.single("imagen"), async (req, res, next) => {
 
     const {nombre, estrellas, categorias, ubicacion, precios, pension, descripcion} = req.body

@@ -6,10 +6,12 @@ const cloudinary = require("../middleware/cloudinary.js")
 //EL CRUD DEL PERFIL
 
 //GET "/api/profile" =>poder ver el perfil del user
-router.get("/", isAuthenticated, async  (req, res, next) =>{
+router.get("/:_id", isAuthenticated, async  (req, res, next) =>{
+
+    const { _id } = req.payload
 
     try {
-        const reponse = await UserModel.find().select("username", "email", "DOB", "imagen")
+        const reponse = await UserModel.findById(_id).select("username email imagen")
         res.json(reponse)
         
     } catch (error) {

@@ -20,10 +20,6 @@ const  UserSchema = new Schema({
       type: String,
       required: true
   },
- DOB: {
-      type: String,
-      require: true
-  },
 imagen: {
       type: String,
   },

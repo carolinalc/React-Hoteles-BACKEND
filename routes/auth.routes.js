@@ -7,9 +7,9 @@ const isAuthenticated = require("../middleware/isAuthenticated")
 
 //POST "/api/auth/signup" => registrar un usuario
 router.post("/signup", async(req, res, next) =>{
-    const { email, password, password2, username, DOB } = req.body
+    const { email, password, password2, username } = req.body
 
-    if(!email || !password || !password2 || !username || !DOB) {
+    if(!email || !password || !password2 || !username) {
         res.status(400).json({errorMessage: "Faltan campos de registro"})
         return;
     }
@@ -39,7 +39,6 @@ router.post("/signup", async(req, res, next) =>{
         const createUser = await UserModel.create({
             username, 
             email,
-            DOB,
             password: hashPasword,
             password2: hashPasword2
         })
