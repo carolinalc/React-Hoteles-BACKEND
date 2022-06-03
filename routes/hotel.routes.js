@@ -5,6 +5,7 @@ const categorias = require("../utils/categorias")
 const pension = require("../utils/pension")
 const hotelsCreados = require("../seeds/hoteles.json");
 const isAuthenticated = require("../middleware/isAuthenticated");
+const cloudinary = require("../middleware/cloudinary.js") 
 
 //EL CRUD DE LOS HOTELES
 
@@ -28,7 +29,7 @@ router.get("/", async (req, res, next)=>{
 
 
 //POST "/api/create" => crear un nuevo hotel 
-router.post("/create", isAuthenticated, async (req, res, next)=>{
+router.post("/create", isAuthenticated, isAdmin, cloudinary.single("imagen"), async (req, res, next) => {
 
     const {nombre, estrellas, categorias, ubicacion, precios, pension, descripcion} = req.body
 
@@ -41,6 +42,7 @@ router.post("/create", isAuthenticated, async (req, res, next)=>{
             precios, 
             pension, 
             descripcion,
+            image: req.file.path
          
         })
         res.json(response)
@@ -69,7 +71,7 @@ router.get("/:id", isAuthenticated, async (req, res, next)=>{
 
 
 //DELETE "/api/hotels/:id" => borrar un hotel
-router.delete("/:id", isAuthenticated, async (req, res, next)=>{
+router.delete("/:id", isAuthenticated, isAdmin, async (req, res, next)=>{
 
     const {id} =req.params
 
@@ -86,15 +88,15 @@ router.delete("/:id", isAuthenticated, async (req, res, next)=>{
 
 
 //PATCH "/api/hotels/:id" => editar un hotel
-router.patch("/:id", isAuthenticated, async (req, res, next)=>{
+router.patch("/:id", isAuthenticated, isAdmin, cloudinary.single("imagen"), async (req, res, next)=>{
    
     const {id} = req.params
     const {nombre, estrellas, categorias, ubicacion, precios, pension, descripcion } = req.body
     console.log(req.body)
 
-    if(!nombre || !estrellas || !categorias || !ubicacion || !precios || !pension || !descripcion){
-        return res.status(400).json("Todos los campos deben estar completados")
-    }
+    // if(!nombre || !estrellas || !categorias || !ubicacion || !precios || !pension || !descripcion){
+    //     return res.status(400).json("Todos los campos deben estar completados")
+    // } => No queremos que se actualicen todos los datos, solo los que sean necesarios
 
     try {
         //no hace falta const porque no  necesita lla llamada de la base de datos con lo que esta borrando
@@ -105,7 +107,8 @@ router.patch("/:id", isAuthenticated, async (req, res, next)=>{
             ubicacion, 
             precios, 
             pension, 
-            descripcion
+            descripcion,
+            imagen: req.file.path
         }, { new: true })
         res.json("La informacion del hotel ha sido actualizada")//no importa el que pero siempre tiene que haber una respuesta
         

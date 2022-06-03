@@ -6,7 +6,7 @@ const  HotelSchema = new Schema({
     nombre: {
         type: String
     },
-    image: {
+    imagen: {
         type: String
     },
     estrellas: {
