@@ -1,7 +1,12 @@
-const {expressjwt} = require("express-jwt")
 
-const isAdmin = () =>{
-    console.log("hola que tal")
+
+module.exports = {
+    isAdmin: (req, res, next) => {
+        if(req.payload.role === "admin"){
+            next()
+        }else{
+            res.json({errorMessage: "No eres administrador"});
+        }
+    }
+
 }
-
-module.exports = isAdmin
