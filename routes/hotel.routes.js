@@ -5,7 +5,7 @@ const categorias = require("../utils/categorias")
 const pension = require("../utils/pension")
 const hotelsCreados = require("../seeds/hoteles.json");
 const isAuthenticated = require("../middleware/isAuthenticated");
-const cloudinary = require("../middleware/cloudinary.js") 
+// const cloudinary = require("../middleware/cloudinary.js") 
 
 //EL CRUD DE LOS HOTELES
 
@@ -22,6 +22,20 @@ router.get("/", async (req, res, next)=>{
     } catch (error) {
         next(error)       
     }
+})
+
+//GET "/api/hotels/selectores" => Esta ruta está creada para mostrar en la selección del formulario las categorias y pension del modelo
+router.get("/selectores",isAuthenticated, isAdmin, async (req, res, next) => {
+
+    try {
+
+        const categoriePension = await HotelModel.find().select("categorias pension")
+        res.json(categoriePension)
+        
+    } catch (error) {
+        next(error)
+    }
+
 })
 
 //GET "/api/hotels/ciudad" => renderizar solo la categoría ciudad
@@ -70,9 +84,10 @@ router.get("/tematico", async (req, res, next) => {
 
 
 //POST "/api/hotels/create" => crear un nuevo hotel 
-router.post("/create", isAuthenticated, isAdmin, cloudinary.single("imagen"), async (req, res, next) => {
+//router.post("/create", isAuthenticated, isAdmin, cloudinary.single("imagen"), async (req, res, next) => {
+router.post("/create", isAuthenticated, isAdmin, async (req, res, next) => {
 
-    const {nombre, estrellas, categorias, ubicacion, precios, pension, descripcion} = req.body
+    const {nombre, estrellas, categorias, ubicacion, precios, pension, descripcion } = req.body
 
     try {
         const response = await HotelModel.create({
@@ -83,9 +98,10 @@ router.post("/create", isAuthenticated, isAdmin, cloudinary.single("imagen"), as
             precios, 
             pension, 
             descripcion,
-            image: req.file.path
+            // imagen
+            //imagen: req.file.path
          
-        })
+        }, {new: true})
         res.json(response)
     } catch (error) {
         next(error)
@@ -129,10 +145,11 @@ router.delete("/:id", isAuthenticated, isAdmin, async (req, res, next)=>{
 
 
 //PATCH "/api/hotels/:id" => editar un hotel
-router.patch("/:id", isAuthenticated, isAdmin, cloudinary.single("imagen"), async (req, res, next)=>{
-   
+// router.patch("/:id", isAuthenticated, isAdmin, cloudinary.single("imagen"), async (req, res, next)=>{
+    router.patch("/:id", isAuthenticated, isAdmin, async (req, res, next)=>{
+    
     const {id} = req.params
-    const {nombre, estrellas, categorias, ubicacion, precios, pension, descripcion } = req.body
+    const {nombre, estrellas, categorias, ubicacion, precios, pension, descripcion, imagen } = req.body
     console.log(req.body)
 
     // if(!nombre || !estrellas || !categorias || !ubicacion || !precios || !pension || !descripcion){
@@ -149,8 +166,10 @@ router.patch("/:id", isAuthenticated, isAdmin, cloudinary.single("imagen"), asyn
             precios, 
             pension, 
             descripcion,
-            imagen: req.file.path
-        }, { new: true })
+            imagen
+            //imagen: req.file.path
+
+        }, {new: true})
         res.json("La informacion del hotel ha sido actualizada")//no importa el que pero siempre tiene que haber una respuesta
         
     } catch (error) {

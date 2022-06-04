@@ -34,13 +34,4 @@ module.exports = (app) => {
   app.use(express.json());
   app.use(express.urlencoded({ extended: false }));
   app.use(cookieParser());
-
-  // app.use(({
-  //   secret: process.env.CLOUDINARY_SECRET,
-  //   resave: false,
-  //   saveUninitialized: false, // solo se guardan sesiones de usuario que hayan sido validados
-  //   store: MongoStore.create({
-  //     mongoUrl: process.env.MONGODB_URI || "mongodb://localhost/React-Hotel-BACKEND"
-  //   })
-  // }));
 };

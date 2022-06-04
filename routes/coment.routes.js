@@ -6,7 +6,7 @@ const isAuthenticated = require("../middleware/isAuthenticated")
 
 //CRUD DE LOS COMENTARIOS
 
-//GET "/api/hotels/:id"
+//GET "/api/hotels/:id/coment"
 router.get("/:id/coment", isAuthenticated, async (req, res, next)=>{
 
     const {id} = req.params
@@ -27,7 +27,7 @@ router.get("/:id/coment", isAuthenticated, async (req, res, next)=>{
 })
 
 
-//POST "/api/hotels/:id" => crear comentario
+//POST "/api/hotels/:id/coment" => crear comentario
 router.post("/:id/coment", isAuthenticated, async (req, res, next) =>{
 
     const {id} = req.params
