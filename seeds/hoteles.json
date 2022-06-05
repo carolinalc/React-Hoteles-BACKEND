@@ -1,23 +1,130 @@
 [
     {
     "nombre": "Hotel Castillo",
-    "image": "url imagen",
-    "estrellas": "⭐⭐⭐",
+    "image": "https://res.cloudinary.com/dm5zetu40/image/upload/v1654092262/Imagen%20hoteles/Tem%C3%A1tico/240_F_89317814_bCLBmgtDv7cinJnwHIx9Kw7RpHg2X5bz_kqs4de.jpg",
+    "estrellas": "⭐⭐⭐⭐⭐",
    "categorias": "tematico",
    "ubicacion": "Cuenca",
    "precios": 105,
    "pension": [ "Con desayuno",  "media pension",  "pension completa"],
    "descripcion": "Todo muy magico y maravilloso"
    },
+   {
+    "nombre": "Spiderman Rest",
+    "image": "https://res.cloudinary.com/dm5zetu40/image/upload/v1654092446/Imagen%20hoteles/Tem%C3%A1tico/download_y1kxr2.jpg",
+    "estrellas": "⭐⭐⭐",
+   "categorias": "tematico",
+   "ubicacion": "Madrid",
+   "precios": 105,
+   "pension": [ "Con desayuno",  "media pension",  "pension completa"],
+   "descripcion": "Todo muy magico y maravilloso"
+   },
+   {
+    "nombre": "Toy Story Hotel",
+    "image": "https://res.cloudinary.com/dm5zetu40/image/upload/v1654092361/Imagen%20hoteles/Tem%C3%A1tico/download_yexhxo.jpg",
+    "estrellas": "⭐",
+   "categorias": "tematico",
+   "ubicacion": "Barcelona",
+   "precios": 105,
+   "pension": [ "Con desayuno",  "media pension",  "pension completa"],
+   "descripcion": "Todo muy magico y maravilloso"
+   },
+
+
 
    {
     "nombre": "Hotel Centro",
-    "image": "url imagen",
-    "estrellas": "⭐⭐",
+    "image": "https://res.cloudinary.com/dm5zetu40/image/upload/v1654092488/Imagen%20hoteles/Ciudad/240_F_293701531_ljqpH1mvkZq28XFBmckO2utZI4CkXYw9_ruhb85.jpg",
+    "estrellas": "⭐⭐⭐⭐⭐",
    "categorias": "ciudad",
    "ubicacion": "Valencia",
    "precios": 105,
-   "pension": "Con desayuno",
+   "pension": [ "Con desayuno",  "media pension",  "pension completa"],
+   "descripcion": "Justo en el centro de la ciudad"
+   },
+   {
+    "nombre": "Gran Hotel ",
+    "image": "https://res.cloudinary.com/dm5zetu40/image/upload/v1654092230/Imagen%20hoteles/Ciudad/240_F_65821315_WGpXLhFtlEHfGQ8sqJ5RUNFNmnYDGgOd_rinpk0.jpg",
+    "estrellas": "⭐⭐⭐⭐",
+   "categorias": "ciudad",
+   "ubicacion": "Almeria",
+   "precios": 105,
+   "pension": [ "Con desayuno",  "media pension",  "pension completa"],
+   "descripcion": "Justo en el centro de la ciudad"
+   },
+   {
+    "nombre": "Hotel PAseo",
+    "image": "https://res.cloudinary.com/dm5zetu40/image/upload/v1654092260/Imagen%20hoteles/Ciudad/240_F_90114933_cvyNTVmQ3GjW2VcEbupsMyxXLg873keW_et9xlb.jpg",
+    "estrellas": "⭐",
+   "categorias": "ciudad",
+   "ubicacion": "Azuga",
+   "precios": 105,
+   "pension": [ "Con desayuno",  "media pension",  "pension completa"],
+   "descripcion": "Justo en el centro de la ciudad"
+   },
+
+
+
+   {
+    "nombre": "Resort El Descanso",
+    "image": "https://res.cloudinary.com/dm5zetu40/image/upload/v1654092411/Imagen%20hoteles/Resort/240_F_87677449_Ia7kriWg3RTu8WKEDzkuNV2KMtfBeV1m_dth2pp.jpg",
+    "estrellas": "⭐⭐⭐⭐⭐",
+   "categorias": "resort",
+   "ubicacion": "Altea",
+   "precios": 105,
+   "pension": [ "Con desayuno",  "media pension",  "pension completa"],
+   "descripcion": "Justo en el centro de la ciudad"
+   },
+   {
+    "nombre": "Business Resort",
+    "image": "https://res.cloudinary.com/dm5zetu40/image/upload/v1654092203/Imagen%20hoteles/Resort/240_F_29133877_bfA2n7cWV53fto2BomyZ6pyRujJTBwjd_sgoxxp.jpg",
+    "estrellas": "⭐⭐⭐",
+   "categorias": "resort",
+   "ubicacion": "Malaga",
+   "precios": 105,
+   "pension": [ "Con desayuno",  "media pension",  "pension completa"],
+   "descripcion": "Justo en el centro de la ciudad"
+   },
+   {
+    "nombre": "Hotel Villaimagina",
+    "image": "https://res.cloudinary.com/dm5zetu40/image/upload/v1654092369/Imagen%20hoteles/Resort/240_F_57441922_AYsbRgb3H8AovsDZrjxh7KlCfZjkUkkU_flx5jd.jpg",
+    "estrellas": "⭐",
+   "categorias": "resort",
+   "ubicacion": "Benidorm",
+   "precios": 105,
+   "pension": [ "Con desayuno",  "media pension",  "pension completa"],
+   "descripcion": "Justo en el centro de la ciudad"
+   },
+
+
+       
+   {
+    "nombre": "Hotel Natural",
+    "estrellas": "⭐⭐⭐⭐⭐",
+   "categorias": "rural",
+   "ubicacion": "Gorocica",
+   "precios": 105,
+   "pension": [ "Con desayuno",  "media pension",  "pension completa"],
+   "descripcion": "Justo en el centro de la ciudad"
+   },
+   {
+    "nombre": "Hotel El Pazo",
+    "image": "https://res.cloudinary.com/dm5zetu40/image/upload/v1654092635/Imagen%20hoteles/Rural/240_F_185876476_X9y7PRns5iXyOku3Y0E98ynjzd1jSL7p_a5mfi7.jpg",
+    "estrellas": "⭐⭐⭐",
+   "categorias": "rural",
+   "ubicacion": "A Coruña",
+   "precios": 105,
+   "pension": [ "Con desayuno",  "media pension",  "pension completa"],
+   "descripcion": "Justo en el centro de la ciudad"
+   },
+   {
+    "nombre": "Hotel Encinar",
+    "image": "https://res.cloudinary.com/dm5zetu40/image/upload/v1654092683/Imagen%20hoteles/Rural/240_F_353917646_udiNatXnSLZkBbtj48QvRP2xHWxU3fKn_gfnnnq.jpg",
+    "estrellas": "⭐",
+   "categorias": "rural",
+   "ubicacion": "Valle de los Pedroches",
+   "precios": 105,
+   "pension": [ "Con desayuno",  "media pension",  "pension completa"],
    "descripcion": "Justo en el centro de la ciudad"
    }
 ]
