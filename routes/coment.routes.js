@@ -28,7 +28,7 @@ router.get("/:id/coment", isAuthenticated, async (req, res, next)=>{
 
 
 //POST "/api/hotels/:id/coment" => crear comentario
-router.post("/:id/coment", isAuthenticated, async (req, res, next) =>{
+router.post("/:id/coment/create", isAuthenticated, async (req, res, next) =>{
 
     const {id} = req.params
     const {_id} = req.payload

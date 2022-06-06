@@ -30,23 +30,23 @@ router.get("/:id/booking", isAuthenticated, async (req, res, next) =>{
 
 
 //POST "/api/hotels/:id/booking" => crear el booking
-router.post("/:id/booking/create", isAuthenticated, async (req, res, next) =>{
+router.post("/:idHotel/booking/create", isAuthenticated, async (req, res, next) =>{
 
-    const {id} = req.params
+    const {idHotel} = req.params
     const {_id} = req.payload
-    const { fecha, huespedes, checkin, comentarios, clienteId, hotelId } = req.body
+    const { fechaEntrada, huespedes, checkin, comentarios, fechaSalida, clienteId, hotelId } = req.body
 
-
+console.log(req.body)
     try {
-        const dataHotel = await HotelModel.findById(id).select("name precios pension")
-        const dataUser = await UserModel.findById(_id).select("username")
+        
         const dataBooking = await BookingModel.create({
-            fecha, 
+            fechaEntrada,
+            fechaSalida, 
             huespedes, 
             checkin, 
             comentarios, 
-            clienteId: dataUser, 
-            hotelId: dataHotel
+            clienteId: _id, 
+            hotelId: idHotel
         })
         res.json(dataBooking)
         

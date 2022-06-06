@@ -1,15 +1,19 @@
 const { Schema, model } = require("mongoose")
+const checkin = require("../utils/checkin")
 
 const  BookingSchema = new Schema({
-    fecha: {
+    fechaEntrada: {
         type: String,
+    },
+    fechaSalida: {
+        type: String
     },
     huespedes: {
         type: Number
     },
    checkin: {
         type: String,
-        enum: ["10:00-13:00", "16:00- 19:00", "Special Time" ]
+        enum: checkin
     },
    comentarios: {
         type: String,
