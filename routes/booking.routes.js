@@ -30,7 +30,7 @@ router.get("/:id/booking", isAuthenticated, async (req, res, next) =>{
 
 
 //POST "/api/hotels/:id/booking" => crear el booking
-router.post("/:id/booking", isAuthenticated, async (req, res, next) =>{
+router.post("/:id/booking/create", isAuthenticated, async (req, res, next) =>{
 
     const {id} = req.params
     const {_id} = req.payload

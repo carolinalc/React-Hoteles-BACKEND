@@ -9,7 +9,7 @@ const  BookingSchema = new Schema({
     },
    checkin: {
         type: String,
-        enum: []
+        enum: ["10:00-13:00", "16:00- 19:00", "Special Time" ]
     },
    comentarios: {
         type: String,
