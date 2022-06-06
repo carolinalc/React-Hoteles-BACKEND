@@ -6,7 +6,7 @@
    "categorias": "tematico",
    "ubicacion": "Cuenca",
    "precios": 105,
-   "pension": [ "Con desayuno",  "media pension",  "pension completa"],
+   "pension": "Con desayuno",
    "descripcion": "Todo muy magico y maravilloso"
    },
    {
@@ -16,7 +16,7 @@
    "categorias": "tematico",
    "ubicacion": "Madrid",
    "precios": 105,
-   "pension": [ "Con desayuno",  "media pension",  "pension completa"],
+   "pension": "Con desayuno",
    "descripcion": "Todo muy magico y maravilloso"
    },
    {
@@ -26,7 +26,7 @@
    "categorias": "tematico",
    "ubicacion": "Barcelona",
    "precios": 105,
-   "pension": [ "Con desayuno",  "media pension",  "pension completa"],
+   "pension":"Con desayuno",
    "descripcion": "Todo muy magico y maravilloso"
    },
 
@@ -39,7 +39,7 @@
    "categorias": "ciudad",
    "ubicacion": "Valencia",
    "precios": 105,
-   "pension": [ "Con desayuno",  "media pension",  "pension completa"],
+   "pension": "Con desayuno",
    "descripcion": "Justo en el centro de la ciudad"
    },
    {
@@ -49,7 +49,7 @@
    "categorias": "ciudad",
    "ubicacion": "Almeria",
    "precios": 105,
-   "pension": [ "Con desayuno",  "media pension",  "pension completa"],
+   "pension": "Con desayuno",
    "descripcion": "Justo en el centro de la ciudad"
    },
    {
@@ -59,7 +59,7 @@
    "categorias": "ciudad",
    "ubicacion": "Azuga",
    "precios": 105,
-   "pension": [ "Con desayuno",  "media pension",  "pension completa"],
+   "pension": "Con desayuno",
    "descripcion": "Justo en el centro de la ciudad"
    },
 
@@ -72,7 +72,7 @@
    "categorias": "resort",
    "ubicacion": "Altea",
    "precios": 105,
-   "pension": [ "Con desayuno",  "media pension",  "pension completa"],
+   "pension": "Con desayuno",
    "descripcion": "Justo en el centro de la ciudad"
    },
    {
@@ -82,7 +82,7 @@
    "categorias": "resort",
    "ubicacion": "Malaga",
    "precios": 105,
-   "pension": [ "Con desayuno",  "media pension",  "pension completa"],
+   "pension": "Con desayuno",
    "descripcion": "Justo en el centro de la ciudad"
    },
    {
@@ -92,7 +92,7 @@
    "categorias": "resort",
    "ubicacion": "Benidorm",
    "precios": 105,
-   "pension": [ "Con desayuno",  "media pension",  "pension completa"],
+   "pension": "Con desayuno",
    "descripcion": "Justo en el centro de la ciudad"
    },
 
@@ -104,7 +104,7 @@
    "categorias": "rural",
    "ubicacion": "Gorocica",
    "precios": 105,
-   "pension": [ "Con desayuno",  "media pension",  "pension completa"],
+   "pension": "Con desayuno",
    "descripcion": "Justo en el centro de la ciudad"
    },
    {
@@ -114,7 +114,7 @@
    "categorias": "rural",
    "ubicacion": "A Coruña",
    "precios": 105,
-   "pension": [ "Con desayuno",  "media pension",  "pension completa"],
+   "pension": "Con desayuno",
    "descripcion": "Justo en el centro de la ciudad"
    },
    {
@@ -124,7 +124,7 @@
    "categorias": "rural",
    "ubicacion": "Valle de los Pedroches",
    "precios": 105,
-   "pension": [ "Con desayuno",  "media pension",  "pension completa"],
+   "pension": "Con desayuno",
    "descripcion": "Justo en el centro de la ciudad"
    }
 ]

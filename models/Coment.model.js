@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+const valoracion = require("../utils/valoracion");
 
 const  ComentSchema = new Schema({
     clienteId: {
@@ -10,7 +11,7 @@ const  ComentSchema = new Schema({
     },
     valoracion: {
         type: Number,
-        enum: [0, 1, 2, 3, 4, 5]
+        enum: valoracion
     },
    hotelId: {
         type: Schema.Types.ObjectId,

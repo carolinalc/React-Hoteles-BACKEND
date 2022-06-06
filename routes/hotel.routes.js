@@ -3,7 +3,8 @@ const HotelModel = require("../models/Hotel.Model")
 const isAdmin = require("../middleware/isAdmin.js")
 const categorias = require("../utils/categorias")
 const pension = require("../utils/pension")
-const hotelsCreados = require("../seeds/hoteles.json");
+const checkin = require("../utils/checkin")
+const valoracion = require("../utils/valoracion");
 const isAuthenticated = require("../middleware/isAuthenticated");
 const cloudinary = require("../middleware/cloudinary.js") 
 
@@ -29,7 +30,7 @@ router.get("/", async (req, res, next)=>{
 
     try {
 
-         res.json({categorias, pension})
+         res.json({categorias, pension, checkin, valoracion})
         
      } catch (error) {
          next(error)
@@ -142,8 +143,7 @@ router.delete("/:id", isAuthenticated, isAdmin, async (req, res, next)=>{
 
 
 //PATCH "/api/hotels/:id" => editar un hotel
-// router.patch("/:id", isAuthenticated, isAdmin, cloudinary.single("imagen"), async (req, res, next)=>{
-    router.patch("/:id", isAuthenticated, isAdmin, async (req, res, next)=>{
+router.patch("/:id", isAuthenticated, isAdmin, cloudinary.single("imagen"), async (req, res, next)=>{
     
     const {id} = req.params
     const {nombre, estrellas, categorias, ubicacion, precios, pension, descripcion, imagen } = req.body
@@ -163,10 +163,10 @@ router.delete("/:id", isAuthenticated, isAdmin, async (req, res, next)=>{
             precios, 
             pension, 
             descripcion,
-            imagen
-            //imagen: req.file.path
+            imagen: req.file.path
 
         }, {new: true})
+
         res.json("La informacion del hotel ha sido actualizada")//no importa el que pero siempre tiene que haber una respuesta
         
     } catch (error) {
