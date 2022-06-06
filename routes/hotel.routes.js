@@ -5,7 +5,7 @@ const categorias = require("../utils/categorias")
 const pension = require("../utils/pension")
 const hotelsCreados = require("../seeds/hoteles.json");
 const isAuthenticated = require("../middleware/isAuthenticated");
-// const cloudinary = require("../middleware/cloudinary.js") 
+const cloudinary = require("../middleware/cloudinary.js") 
 
 //EL CRUD DE LOS HOTELES
 
@@ -25,16 +25,15 @@ router.get("/", async (req, res, next)=>{
 })
 
 //GET "/api/hotels/selectores" => Esta ruta está creada para mostrar en la selección del formulario las categorias y pension del modelo
-router.get("/selectores",isAuthenticated, isAdmin, async (req, res, next) => {
+ router.get("/selectores",isAuthenticated, isAdmin, async (req, res, next) => {
 
     try {
 
-        const categoriePension = await HotelModel.find().select("categorias pension")
-        res.json(categoriePension)
+         res.json({categorias, pension})
         
-    } catch (error) {
-        next(error)
-    }
+     } catch (error) {
+         next(error)
+     }
 
 })
 
@@ -84,8 +83,7 @@ router.get("/tematico", async (req, res, next) => {
 
 
 //POST "/api/hotels/create" => crear un nuevo hotel 
-//router.post("/create", isAuthenticated, isAdmin, cloudinary.single("imagen"), async (req, res, next) => {
-router.post("/create", isAuthenticated, isAdmin, async (req, res, next) => {
+router.post("/create", isAuthenticated, isAdmin, cloudinary.single("imagen"), async (req, res, next) => {
 
     const {nombre, estrellas, categorias, ubicacion, precios, pension, descripcion } = req.body
 
@@ -98,8 +96,7 @@ router.post("/create", isAuthenticated, isAdmin, async (req, res, next) => {
             precios, 
             pension, 
             descripcion,
-            // imagen
-            //imagen: req.file.path
+            imagen: req.file.path
          
         }, {new: true})
         res.json(response)

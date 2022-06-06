@@ -1,9 +1,26 @@
 const router = require("express").Router();
 const UserModel = require("../models/User.model")
 const isAuthenticated = require("../middleware/isAuthenticated")
-const cloudinary = require("../middleware/cloudinary.js") 
+const cloudinary = require("../middleware/cloudinary.js"); 
+const isAdmin = require("../middleware/isAdmin");
 
 //EL CRUD DEL PERFIL
+
+//GET "/api/profile/admin"
+
+router.get("/admin", isAuthenticated, isAdmin, async (req, res, next )=> {
+
+    try {
+
+        const admin = await UserModel.find().select("admin")
+        res.json(admin)
+        
+    } catch (error) {
+        next(error)
+    }
+
+})
+
 
 //GET "/api/profile" =>poder ver el perfil del user
 router.get("/:_id", isAuthenticated, async  (req, res, next) =>{
