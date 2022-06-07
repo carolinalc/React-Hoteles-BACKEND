@@ -10,11 +10,10 @@ const isAuthenticated = require("../middleware/isAuthenticated")
 router.get("/:id", isAuthenticated, async (req, res, next)=>{
 
     const {id} = req.params
-    const { hotelId } = req.body
      
     try {
  
-        const comentHotel = await ComentModel.find({hotelId: id}).populate("clienteId", "username")
+    const comentHotel = await ComentModel.find({hotelId: id}).populate("clienteId", "username")
        console.log(comentHotel)
         res.json(comentHotel) 
 

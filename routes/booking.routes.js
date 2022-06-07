@@ -25,9 +25,9 @@ const router = require("express").Router();
 
 
 //POST "/api/booking/:id/create" => crear el booking
-router.post("/:idHotel/create", isAuthenticated, async (req, res, next) =>{
+router.post("/:id/create", isAuthenticated, async (req, res, next) =>{
 
-    const {idHotel} = req.params
+    const {id} = req.params
     const {_id} = req.payload
     const { fechaEntrada, huespedes, checkin , comentarios, fechaSalida, clienteId, hotelId } = req.body
 
@@ -42,7 +42,7 @@ console.log(checkin)
             checkin, 
             comentarios, 
             clienteId: _id, 
-            hotelId: idHotel
+            hotelId: id
         })
         res.json(dataBooking)
         
