@@ -10,16 +10,16 @@ const isAuthenticated = require("../middleware/isAuthenticated")
 router.get("/:id/coment", isAuthenticated, async (req, res, next)=>{
 
     const {id} = req.params
-    const {_id} = req.payload
+    const { hotelId } = req.body
      
     try {
+ 
         const comentHotel = await ComentModel.find({hotelId: id}).populate("clienteId", "username")
-        const hotelDetails = await HotelModel.findById(id)
-        res.json({
-            hotelDetails, 
-            comentHotel
-        })
-        
+       console.log(comentHotel)
+        const hotelDetalle = await HotelModel.findById(id)
+        res.json({comentHotel, hotelDetalle}) 
+
+   
     } catch (error) {
         next(error)
     }
@@ -35,7 +35,7 @@ router.post("/:id/coment/create", isAuthenticated, async (req, res, next) =>{
     const {clienteId, comentario, valoracion, hotelId} = req.body
 
     try {
-        const nameUser = await UserModel.findById(_id)
+        const nameUser = await UserModel.findById(_id).select("username")
         const comentHotel = await ComentModel.create({
             clienteId: nameUser, 
             comentario, 
