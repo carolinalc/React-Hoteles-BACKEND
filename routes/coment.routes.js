@@ -6,8 +6,8 @@ const isAuthenticated = require("../middleware/isAuthenticated")
 
 //CRUD DE LOS COMENTARIOS
 
-//GET "/api/hotels/:id/coment"
-router.get("/:id/coment", isAuthenticated, async (req, res, next)=>{
+//GET "/api/coment/:id"
+router.get("/:id", isAuthenticated, async (req, res, next)=>{
 
     const {id} = req.params
     const { hotelId } = req.body
@@ -16,8 +16,7 @@ router.get("/:id/coment", isAuthenticated, async (req, res, next)=>{
  
         const comentHotel = await ComentModel.find({hotelId: id}).populate("clienteId", "username")
        console.log(comentHotel)
-        const hotelDetalle = await HotelModel.findById(id)
-        res.json({comentHotel, hotelDetalle}) 
+        res.json(comentHotel) 
 
    
     } catch (error) {
@@ -27,8 +26,8 @@ router.get("/:id/coment", isAuthenticated, async (req, res, next)=>{
 })
 
 
-//POST "/api/hotels/:id/coment" => crear comentario
-router.post("/:id/coment/create", isAuthenticated, async (req, res, next) =>{
+//POST "/api/coment/:id/create" => crear comentario
+router.post("/:id/create", isAuthenticated, async (req, res, next) =>{
 
     const {id} = req.params
     const {_id} = req.payload

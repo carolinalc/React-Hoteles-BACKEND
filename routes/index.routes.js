@@ -17,9 +17,9 @@ const hotelsRoutes = require("./hotel.routes.js")
 router.use("/hotels", hotelsRoutes)
 
 const comentRoutes = require("./coment.routes.js")
-router.use("/hotels", comentRoutes)
+router.use("/coment", comentRoutes)
 
 const bookingRoutes = require("./booking.routes.js")
-router.use("/hotels", bookingRoutes)
+router.use("/booking", bookingRoutes)
 
 module.exports = router;

@@ -166,7 +166,7 @@ router.patch("/:id", isAuthenticated, isAdmin, cloudinary.single("imagen"), asyn
 
         }, {new: true})
 
-        res.json("La informacion del hotel ha sido actualizada")//no importa el que pero siempre tiene que haber una respuesta
+        res.status(200).json("La informacion del hotel ha sido actualizada")//no importa el que pero siempre tiene que haber una respuesta
         
     } catch (error) {
         next(error)
