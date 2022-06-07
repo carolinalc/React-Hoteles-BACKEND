@@ -1,5 +1,6 @@
 const BookingModel = require("../models/Booking.Model");
 const HotelModel = require("../models/Hotel.Model");
+const UserModel = require("../models/User.model")
 const isAuthenticated = require("../middleware/isAuthenticated")
 const checkin = require("../utils/checkin")
 
@@ -35,32 +36,45 @@ console.log(checkin)
     }
 })
 
-//GET "/api/hotels/:id/booking"=> visualizar bookings
-router.get("/:id/booking", isAuthenticated, async (req, res, next) =>{
+//GET "/api/hotels/booking"=> visualizar bookings
+//  router.get("/:idBooking/booking", isAuthenticated, async (req, res, next) =>{
 
-    const {id} = req.params
+//      const {idBooking} = req.params
+//      const {_id} = req.payload
+//      const { idHotel } = req.body
+
+//      try {
+//          const bookingModel = await BookingModel.findById(idBooking).populate("fechaEntrada fechaSalida huespedes checkin comentarios")
+//          const dataHotel = HotelModel.findById(idHotel).populate("pension precios")
+//          const dataUser = UserModel.findById(_id).populate( "username")
+//          res.json({bookingModel, dataHotel, dataUser})
+        
+//      } catch (error) {
+//          next(error)
+//      }
+//  })
+
+router.get("/:idBooking/booking", isAuthenticated, async (req, res, next) =>{
+
+    const {idBooking} = req.params
     const {_id} = req.payload
-    
+    const {idHotel} = req.body
 
     try {
-        const dataHotel = await HotelModel.findById(id).select("precios pension")
-        const bookingtHotel = await BookingModel.find({hotelId: _id}).populate("clienteId", "username")
-        res.json({
-            dataHotel,
-            bookingtHotel
-        })
+       const dataHotel = await HotelModel.findById(idHotel)
+       const bookingtHotel = await BookingModel.find(idBooking).populate("clienteId", "username")
+       const dataUser = await UserModel.findById(_id).select("username")
+       res.json({
+           dataHotel,
+           bookingtHotel,
+           dataUser
+       })
+
         
     } catch (error) {
-        next(error)
-    }
-})
-
-
-
-
-
-
-
+          next(error)
+ }
+  })
 
 
 module.exports = router;

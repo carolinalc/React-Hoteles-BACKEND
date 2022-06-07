@@ -26,8 +26,7 @@ router.get("/", async (req, res, next)=>{
 })
 
 //GET "/api/hotels/selectores" => Esta ruta está creada para mostrar en la selección del formulario las categorias y pension del modelo
- router.get("/selectores",isAuthenticated, isAdmin, async (req, res, next) => {
-
+ router.get("/selectores",isAuthenticated, async (req, res, next) => {
     try {
 
          res.json({categorias, pension, checkin, valoracion})
