@@ -44,7 +44,7 @@ router.get("/:id/booking", isAuthenticated, async (req, res, next) =>{
 
     try {
         const dataHotel = await HotelModel.findById(id).select("precios pension")
-        const bookingtHotel = await BookingModel.find({hotelId: id}).populate("clienteId", "username")
+        const bookingtHotel = await BookingModel.find({hotelId: _id}).populate("clienteId", "username")
         res.json({
             dataHotel,
             bookingtHotel
