@@ -22,4 +22,7 @@ router.use("/coment", comentRoutes)
 const bookingRoutes = require("./booking.routes.js")
 router.use("/booking", bookingRoutes)
 
+const uploaderRouter = require("./uploader.routes.js")
+router.use("/uploader", uploaderRouter)
+
 module.exports = router;

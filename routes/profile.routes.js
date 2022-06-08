@@ -39,7 +39,7 @@ router.get("/:_id", isAuthenticated, async  (req, res, next) =>{
 
 
 //PATCH "/api/profile/:id" => editar el perfil del usuario
-router.patch("/:id", isAuthenticated, cloudinary.single("imagen"), async (req, res, next) => {
+router.patch("/:id", isAuthenticated, async (req, res, next) => {
 
         const {id} = req.params
         const { username, email} = req.body
@@ -48,7 +48,7 @@ router.patch("/:id", isAuthenticated, cloudinary.single("imagen"), async (req, r
        await UserModel.findByIdAndUpdate(id, {
             username, 
             email, 
-            imagen: req.file.path
+            imagen
 
        }, { new: true })
        res.json("Perfil actualizado")
