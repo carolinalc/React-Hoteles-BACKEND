@@ -22,6 +22,7 @@ const  UserSchema = new Schema({
   },
 imagen: {
       type: String,
+      default: "https://res.cloudinary.com/dm5zetu40/image/upload/v1654706961/Imagen%20hoteles/MUJER-USER_idxzgl.png"
   },
  role: {
       type: String,

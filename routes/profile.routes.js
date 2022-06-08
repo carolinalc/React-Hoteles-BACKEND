@@ -42,14 +42,14 @@ router.get("/booking", isAuthenticated, async (req, res, next)=>{
 })
 
 
-//GET "/api/profile" =>poder ver el perfil del user
-router.get("/:_id", isAuthenticated, async  (req, res, next) =>{
+//GET "/api/profile" => poder ver el perfil del user
+router.get("/user", isAuthenticated, async  (req, res, next) =>{
 
     const { _id } = req.payload
 
     try {
-        const reponse = await UserModel.findById(_id).select("username email imagen")
-        res.json(reponse)
+        const response = await UserModel.findById(_id).select("username email imagen")
+        res.json(response)
         
     } catch (error) {
         next(error)
