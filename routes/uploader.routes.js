@@ -4,7 +4,7 @@ const uploader = require("../middleware/cloudinary.js")
 
 router.post("/", uploader.single("imagen"), (req, res, next) => {
 
-    console.log(req.file.path)
+    // console.log(req.file.path)
 
     res.json(req.file.path)
     

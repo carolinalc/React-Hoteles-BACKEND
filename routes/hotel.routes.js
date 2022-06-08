@@ -85,7 +85,7 @@ router.get("/tematico", async (req, res, next) => {
 //POST "/api/hotels/create" => crear un nuevo hotel 
 router.post("/create", isAuthenticated, isAdmin, async (req, res, next) => {
 
-    const {nombre, estrellas, categorias, ubicacion, precios, pension, descripcion } = req.body
+    const {nombre, estrellas, categorias, ubicacion, precios, pension, descripcion, imagen } = req.body
 
     try {
         const response = await HotelModel.create({
@@ -96,9 +96,10 @@ router.post("/create", isAuthenticated, isAdmin, async (req, res, next) => {
             precios, 
             pension, 
             descripcion,
-            imagen
+            imagen: imagen
          
         })
+        console.log(response)
         res.json(response)
     } catch (error) {
         next(error)

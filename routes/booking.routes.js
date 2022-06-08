@@ -72,7 +72,7 @@ router.get("/:idBooking", isAuthenticated, async (req, res, next) =>{
 //DELETE "/api/booking/:idBooking/delete" => borrar un comentario
 router.delete("/:id/delete", isAuthenticated, async (req, res, next)=>{
 
-    const {_id} = req.params
+    const {id} = req.params
 
     try {
         
@@ -85,13 +85,14 @@ router.delete("/:id/delete", isAuthenticated, async (req, res, next)=>{
 
 })
 
-//GET "/api/booking/:idBooking/details" => ver los detalles de un booking 
+//GET "/api/booking/:id/details" => ver los detalles de un booking 
 router.get("/:id/details", isAuthenticated, async (req, res, next)=>{
 
-    const {id} =req.params
+    const {id} = req.params
 
     try {
         const reponse = await BookingModel.findById(id)
+        console.log(reponse)
         res.json(reponse)
         
     } catch (error) {
