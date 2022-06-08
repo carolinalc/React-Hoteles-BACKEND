@@ -3,6 +3,7 @@ const UserModel = require("../models/User.model")
 const isAuthenticated = require("../middleware/isAuthenticated")
 const cloudinary = require("../middleware/cloudinary.js"); 
 const isAdmin = require("../middleware/isAdmin");
+const BookingModel = require("../models/Booking.Model");
 
 //EL CRUD DEL PERFIL
 
@@ -15,6 +16,23 @@ router.get("/admin", isAuthenticated, isAdmin, async (req, res, next )=> {
         const admin = await UserModel.find().select("admin")
         res.json(admin)
         
+    } catch (error) {
+        next(error)
+    }
+
+})
+
+router.get("/booking", isAuthenticated, async (req, res, next)=>{
+
+    const {_id} = req.payload
+     
+    try {
+ 
+    const bookingUser = await BookingModel.find({clienteId: _id}).populate("hotelId", "nombre")
+       console.log(bookingUser)
+        res.json(bookingUser) 
+
+   
     } catch (error) {
         next(error)
     }
