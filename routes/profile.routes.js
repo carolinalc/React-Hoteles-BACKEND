@@ -22,6 +22,8 @@ router.get("/admin", isAuthenticated, isAdmin, async (req, res, next )=> {
 
 })
 
+
+//GET "/api/profile/booking" => visualizar los propios bookings en el perfil del cliente
 router.get("/booking", isAuthenticated, async (req, res, next)=>{
 
     const {_id} = req.payload
@@ -56,19 +58,19 @@ router.get("/:_id", isAuthenticated, async  (req, res, next) =>{
 })
 
 
-//PATCH "/api/profile/:id" => editar el perfil del usuario
-router.patch("/:id", isAuthenticated, async (req, res, next) => {
+//PATCH "/api/profile/edit" => editar el perfil del usuario
+router.patch("/edit", isAuthenticated, async (req, res, next) => {
 
-        const {id} = req.params
-        const { username, email,imagen} = req.body
+        const {_id} = req.payload
+        const { username, email, imagen} = req.body
 
     try {
-       await UserModel.findByIdAndUpdate(id, {
+       await UserModel.findByIdAndUpdate(_id, {
             username, 
             email, 
             imagen
 
-       }, { new: true })
+       })
        res.json("Perfil actualizado")
         
     } catch (error) {
