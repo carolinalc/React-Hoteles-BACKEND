@@ -82,7 +82,11 @@ router.get("/tematico", async (req, res, next) => {
 })
 
 
+<<<<<<< HEAD
 //POST "/api/hotels/create" => crear un nuevo hotel -- cloudinary.single("imagen")
+=======
+//POST "/api/hotels/create" => crear un nuevo hotel 
+>>>>>>> b593c13f9fb6ea26974bcb4cf166a8f192718aa6
 router.post("/create", isAuthenticated, isAdmin, async (req, res, next) => {
 
     const {nombre, estrellas, categorias, ubicacion, precios, pension, descripcion } = req.body
@@ -96,7 +100,11 @@ router.post("/create", isAuthenticated, isAdmin, async (req, res, next) => {
             precios, 
             pension, 
             descripcion,
+<<<<<<< HEAD
             //imagen: req.file.path
+=======
+            imagen
+>>>>>>> b593c13f9fb6ea26974bcb4cf166a8f192718aa6
          
         })
         res.json(response)
@@ -142,7 +150,7 @@ router.delete("/:id", isAuthenticated, isAdmin, async (req, res, next)=>{
 
 
 //PATCH "/api/hotels/:id" => editar un hotel
-router.patch("/:id", isAuthenticated, isAdmin, cloudinary.single("imagen"), async (req, res, next)=>{
+router.patch("/:id", isAuthenticated, isAdmin, async (req, res, next)=>{
     
     const {id} = req.params
     const {nombre, estrellas, categorias, ubicacion, precios, pension, descripcion, imagen } = req.body
@@ -162,7 +170,7 @@ router.patch("/:id", isAuthenticated, isAdmin, cloudinary.single("imagen"), asyn
             precios, 
             pension, 
             descripcion,
-            imagen: req.file.path
+            imagen
 
         }, {new: true})
 
