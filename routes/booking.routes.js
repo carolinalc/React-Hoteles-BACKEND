@@ -69,6 +69,22 @@ router.get("/:idBooking", isAuthenticated, async (req, res, next) =>{
   })
 
 
+//DELETE "/api/booking/:idBooking" => borrar un comentario
+router.delete("/:iBooking", isAuthenticated, async (req, res, next)=>{
+
+    const {iBooking} =req.params
+
+    try {
+        
+        await BookingModel.findByIdAndDelete(iBooking)
+        res.json("El Booking ha sido elimidado de la lista")
+        
+    } catch (error) {
+        next(error)
+    }
+
+})
+
 
 
 

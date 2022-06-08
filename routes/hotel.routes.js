@@ -82,8 +82,8 @@ router.get("/tematico", async (req, res, next) => {
 })
 
 
-//POST "/api/hotels/create" => crear un nuevo hotel 
-router.post("/create", isAuthenticated, isAdmin, cloudinary.single("imagen"), async (req, res, next) => {
+//POST "/api/hotels/create" => crear un nuevo hotel -- cloudinary.single("imagen")
+router.post("/create", isAuthenticated, isAdmin, async (req, res, next) => {
 
     const {nombre, estrellas, categorias, ubicacion, precios, pension, descripcion } = req.body
 
@@ -96,9 +96,9 @@ router.post("/create", isAuthenticated, isAdmin, cloudinary.single("imagen"), as
             precios, 
             pension, 
             descripcion,
-            imagen: req.file.path
+            //imagen: req.file.path
          
-        }, {new: true})
+        })
         res.json(response)
     } catch (error) {
         next(error)
