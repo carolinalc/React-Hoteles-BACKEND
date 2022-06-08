@@ -51,7 +51,7 @@ console.log(checkin)
     }
 })
 
-//GET "/api/booking/:idBooking"=> visualizar bookings
+//GET "/api/booking/:idBooking"=> visualizar los bookings
 router.get("/:idBooking", isAuthenticated, async (req, res, next) =>{
 
     const {idBooking} = req.params
@@ -78,6 +78,21 @@ router.delete("/:id/delete", isAuthenticated, async (req, res, next)=>{
         
         await BookingModel.findByIdAndDelete(id)
         res.json("El Booking ha sido elimidado de la lista")
+        
+    } catch (error) {
+        next(error)
+    }
+
+})
+
+//GET "/api/booking/:idBooking/details" => ver los detalles de un booking 
+router.get("/:id/details", isAuthenticated, async (req, res, next)=>{
+
+    const {id} =req.params
+
+    try {
+        const reponse = await BookingModel.findById(id)
+        res.json(reponse)
         
     } catch (error) {
         next(error)
