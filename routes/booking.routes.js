@@ -91,7 +91,7 @@ router.get("/:id/details", isAuthenticated, async (req, res, next)=>{
     const {id} = req.params
 
     try {
-        const reponse = await BookingModel.findById(id)
+        const reponse = await BookingModel.findById(id).populate("clienteId", "username").populate("hotelId", "nombre")
         console.log(reponse)
         res.json(reponse)
         
