@@ -6,7 +6,6 @@ const pension = require("../utils/pension")
 const checkin = require("../utils/checkin")
 const valoracion = require("../utils/valoracion");
 const isAuthenticated = require("../middleware/isAuthenticated");
-const cloudinary = require("../middleware/cloudinary.js") 
 
 //EL CRUD DE LOS HOTELES
 
