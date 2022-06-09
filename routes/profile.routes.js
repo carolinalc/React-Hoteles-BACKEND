@@ -71,7 +71,7 @@ router.patch("/edit", isAuthenticated, async (req, res, next) => {
             imagen
 
        })
-       res.json("Perfil actualizado")
+       res.status(200).json("Perfil actualizado")
         
     } catch (error) {
         next(error)
