@@ -59,7 +59,7 @@ router.get("/user", isAuthenticated, async  (req, res, next) =>{
 
 
 //PATCH "/api/profile/edit" => editar el perfil del usuario
-router.patch("/edit", isAuthenticated, async (req, res, next) => {
+router.patch("/:id/edit", isAuthenticated, async (req, res, next) => {
 
         const {_id} = req.payload
         const { username, email, imagen} = req.body
