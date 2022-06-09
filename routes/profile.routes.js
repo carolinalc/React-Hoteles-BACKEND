@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const UserModel = require("../models/User.model")
-const isAuthenticated = require("../middleware/isAuthenticated")
-const cloudinary = require("../middleware/cloudinary.js"); 
+const isAuthenticated = require("../middleware/isAuthenticated") 
 const isAdmin = require("../middleware/isAdmin");
 const BookingModel = require("../models/Booking.Model");
 
@@ -70,8 +69,8 @@ router.patch("/edit", isAuthenticated, async (req, res, next) => {
             email, 
             imagen
 
-       })
-       res.json("Perfil actualizado")
+       }, {new: true})
+       res.status(200).json("Perfil actualizado")
         
     } catch (error) {
         next(error)
