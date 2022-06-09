@@ -69,7 +69,7 @@ router.get("/:idBooking", isAuthenticated, async (req, res, next) =>{
   })
 
 
-//DELETE "/api/booking/:idBooking/delete" => borrar un comentario
+//DELETE "/api/booking/:idBooking/delete" => borrar un booking
 router.delete("/:id/delete", isAuthenticated, async (req, res, next)=>{
 
     const {id} = req.params

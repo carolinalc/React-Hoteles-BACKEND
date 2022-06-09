@@ -78,5 +78,22 @@ router.patch("/:id/edit", isAuthenticated, async (req, res, next) => {
 })
 
 
+//DELETE "/api/profile/:id/delete"
+router.delete("/delete", isAuthenticated, async (req, res, next)=>{
+
+
+
+    try {
+        
+        await BookingModel.findOneAndDelete()
+        res.json("El Booking ha sido elimidado de la lista")
+        
+    } catch (error) {
+        next(error)
+    }
+
+})
+
+
 
 module.exports = router;
