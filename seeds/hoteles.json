@@ -4,10 +4,10 @@
     "imagen": "https://res.cloudinary.com/dm5zetu40/image/upload/v1654092262/Imagen%20hoteles/Tem%C3%A1tico/240_F_89317814_bCLBmgtDv7cinJnwHIx9Kw7RpHg2X5bz_kqs4de.jpg",
     "estrellas": "⭐⭐⭐⭐⭐",
    "categorias": "tematico",
-   "ubicacion": "Cuenca",
-   "precios": 105,
+   "ubicacion": "Barcelona",
+   "precios": 180,
    "pension": "Con desayuno",
-   "descripcion": "Todo muy magico y maravilloso"
+   "descripcion": "La ubicación del Hotel Castillo de Barcelona en pleno centro de Barcelona, a un paso de las Ramblas, de la Plaza Cataluña y de las principales atracciones turísticas, lo convierte en la opción perfecta para tu viaje a Barcelona."
    },
    {
     "nombre": "Spiderman Rest",
@@ -15,19 +15,19 @@
     "estrellas": "⭐⭐⭐",
    "categorias": "tematico",
    "ubicacion": "Madrid",
-   "precios": 105,
+   "precios": 70,
    "pension": "Con desayuno",
-   "descripcion": "Todo muy magico y maravilloso"
+   "descripcion": "Hotel inspirado en las aventuras de Spiderman para que te sientas una verdara araña"
    },
    {
     "nombre": "Toy Story Hotel",
     "imagen": "https://res.cloudinary.com/dm5zetu40/image/upload/v1654092361/Imagen%20hoteles/Tem%C3%A1tico/download_yexhxo.jpg",
     "estrellas": "⭐",
    "categorias": "tematico",
-   "ubicacion": "Barcelona",
-   "precios": 105,
+   "ubicacion": "Cuenca",
+   "precios": 300,
    "pension":"Con desayuno",
-   "descripcion": "Todo muy magico y maravilloso"
+   "descripcion": "Habitaciones temáticas de tus mejores amigos BuzzLightYear, Woody y compañía"
    },
 
 
@@ -38,29 +38,29 @@
     "estrellas": "⭐⭐⭐⭐⭐",
    "categorias": "ciudad",
    "ubicacion": "Valencia",
-   "precios": 105,
+   "precios": 95,
    "pension": "Con desayuno",
-   "descripcion": "Justo en el centro de la ciudad"
+   "descripcion": "Este moderno hotel está situado cerca del centro, las habitaciones son espaciosas y combinan la comodidad y funcionalidad"
    },
    {
-    "nombre": "Gran Hotel ",
+    "nombre": "Gran Hotel",
     "imagen": "https://res.cloudinary.com/dm5zetu40/image/upload/v1654092230/Imagen%20hoteles/Ciudad/240_F_65821315_WGpXLhFtlEHfGQ8sqJ5RUNFNmnYDGgOd_rinpk0.jpg",
     "estrellas": "⭐⭐⭐⭐",
    "categorias": "ciudad",
    "ubicacion": "Almeria",
-   "precios": 105,
+   "precios": 45,
    "pension": "Con desayuno",
-   "descripcion": "Justo en el centro de la ciudad"
+   "descripcion": "Acceso directo a la playa y unas impresionantes vistas al mar desde todas las habitaciones"
    },
    {
-    "nombre": "Hotel PAseo",
+    "nombre": "Hotel Paseo",
     "imagen": "https://res.cloudinary.com/dm5zetu40/image/upload/v1654092260/Imagen%20hoteles/Ciudad/240_F_90114933_cvyNTVmQ3GjW2VcEbupsMyxXLg873keW_et9xlb.jpg",
     "estrellas": "⭐",
    "categorias": "ciudad",
-   "ubicacion": "Azuga",
-   "precios": 105,
+   "ubicacion": "Alicante",
+   "precios": 85,
    "pension": "Con desayuno",
-   "descripcion": "Justo en el centro de la ciudad"
+   "descripcion": "Hotel céntrico con habitaciones con mucho encanto. El punto de partida perfecto para explorar la ciudad."
    },
 
 
@@ -71,9 +71,9 @@
     "estrellas": "⭐⭐⭐⭐⭐",
    "categorias": "resort",
    "ubicacion": "Altea",
-   "precios": 105,
+   "precios": 450,
    "pension": "Con desayuno",
-   "descripcion": "Justo en el centro de la ciudad"
+   "descripcion": "El exterior de nuestro alojamiento es un espacio para que los niños disfruten en los columpios de la piscina y los adultos se rejalen en la zona chill-out."
    },
    {
     "nombre": "Business Resort",
@@ -81,9 +81,9 @@
     "estrellas": "⭐⭐⭐",
    "categorias": "resort",
    "ubicacion": "Malaga",
-   "precios": 105,
+   "precios": 225,
    "pension": "Con desayuno",
-   "descripcion": "Justo en el centro de la ciudad"
+   "descripcion": "Disfruta de un día de sol con amigos en nuestras terrazas con vistas a la naturaleza. Tenemos una piscina inspirada en el relax y la comodidad"
    },
    {
     "nombre": "Hotel Villaimagina",
@@ -91,9 +91,9 @@
     "estrellas": "⭐",
    "categorias": "resort",
    "ubicacion": "Benidorm",
-   "precios": 105,
+   "precios": 80,
    "pension": "Con desayuno",
-   "descripcion": "Justo en el centro de la ciudad"
+   "descripcion": "Nuestro parque de atracciones incluido en el hotel hará que tú y tu familia disfrutéis de unas vacaciones de ensueño."
    },
 
 
@@ -104,9 +104,9 @@
     "estrellas": "⭐⭐⭐⭐⭐",
    "categorias": "rural",
    "ubicacion": "Gorocica",
-   "precios": 105,
+   "precios": 73,
    "pension": "Con desayuno",
-   "descripcion": "Justo en el centro de la ciudad"
+   "descripcion": "Hotel junto al lago en una zona de senderismo. Sostenible, especialmente en el tema ambiental y cultural."
    },
    {
     "nombre": "Hotel El Pazo",
@@ -114,22 +114,18 @@
     "estrellas": "⭐⭐⭐",
    "categorias": "rural",
    "ubicacion": "A Coruña",
-   "precios": 105,
+   "precios": 45,
    "pension": "Con desayuno",
-   "descripcion": "Justo en el centro de la ciudad"
+   "descripcion": "Hotel rural en un lugar muy remoto pero con mucho encanto. Disfrutarás de la naturaleza como nunca antes la habías sentido."
    },
    {
     "nombre": "Hotel Encinar",
     "imagen": "https://res.cloudinary.com/dm5zetu40/image/upload/v1654092683/Imagen%20hoteles/Rural/240_F_353917646_udiNatXnSLZkBbtj48QvRP2xHWxU3fKn_gfnnnq.jpg",
-    "estrellas": "⭐",
+    "estrellas": "⭐⭐",
    "categorias": "rural",
    "ubicacion": "Valle de los Pedroches",
-   "precios": 105,
+   "precios": 70,
    "pension": "Con desayuno",
-   "descripcion": "Justo en el centro de la ciudad"
+   "descripcion": "Hotel rústico con impresionantes vistas a la dehesa. Ideal para disfrutar de la gastronomía ibérica andaluza"
    }
 ]
-
-
-
-
